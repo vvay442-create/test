@@ -21,7 +21,51 @@
     </header>
 
     <main class="timeline-wrap">
-      <div id="timeline" class="timeline" aria-label="Хронология вех"></div>
+      <div class="tabs" aria-label="Вкладки">
+        <button class="tab-btn active" data-target="tab-timeline">Хронология</button>
+        <button class="tab-btn" data-target="tab-tools">Инструменты</button>
+        <button class="tab-btn" data-target="tab-glossary">Глоссарий</button>
+      </div>
+
+      <div class="tab-content">
+        <div id="tab-timeline" class="tab-pane active" aria-labelledby="tab-timeline">
+          <div id="timeline" class="timeline" aria-label="Хронология вех"></div>
+        </div>
+
+        <div id="tab-tools" class="tab-pane" aria-labelledby="tab-tools">
+          <div class="info-grid">
+            <article class="card" data-tag="AI-нативные IDE">
+              <h2 class="card__title">Cursor</h2>
+              <p class="card__desc">AI-first редактор кода на базе VS Code. Понимает контекст всей кодовой базы, позволяет писать код в режиме диалога или через встроенный Composer.</p>
+            </article>
+            <article class="card" data-tag="Автономные агенты">
+              <h2 class="card__title">Claude Code</h2>
+              <p class="card__desc">CLI-агент от Anthropic. Умеет читать файлы, запускать команды в терминале и самостоятельно решать задачи по коду.</p>
+            </article>
+            <article class="card" data-tag="Автодополнение">
+              <h2 class="card__title">GitHub Copilot</h2>
+              <p class="card__desc">Пионер AI-помощников в коде. Отлично справляется с автодополнением и генерацией сниппетов по контексту.</p>
+            </article>
+          </div>
+        </div>
+
+        <div id="tab-glossary" class="tab-pane" aria-labelledby="tab-glossary">
+          <div class="info-grid">
+            <article class="card" data-tag="Термин">
+              <h2 class="card__title">Vibe coding</h2>
+              <p class="card__desc">Процесс, при котором человек больше описывает намерения естественным языком, а не пишет код, перекладывая рутину на AI-агентов.</p>
+            </article>
+            <article class="card" data-tag="Термин">
+              <h2 class="card__title">MCP (Model Context Protocol)</h2>
+              <p class="card__desc">Открытый стандарт от Anthropic для подключения AI-моделей к внешним инструментам и источникам данных.</p>
+            </article>
+            <article class="card" data-tag="Термин">
+              <h2 class="card__title">RAG (Retrieval-Augmented Generation)</h2>
+              <p class="card__desc">Метод улучшения качества ответов LLM путем предварительного поиска релевантной информации (например, в документации) и добавления её в контекст.</p>
+            </article>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="footer">
@@ -33,6 +77,9 @@
     <script src="app.js"></script>
     <script>
       renderTimeline(MILESTONES, document.getElementById('timeline'));
+      if (typeof initTabs === 'function') {
+        initTabs();
+      }
     </script>
   </body>
 </html>
