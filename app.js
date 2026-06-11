@@ -45,7 +45,30 @@ function renderTimeline(milestones, container) {
   return container;
 }
 
+function initTabs() {
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+
+  if (tabBtns.length === 0 || tabPanes.length === 0) return;
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Убираем active у всех кнопок и панелей
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabPanes.forEach(p => p.classList.remove('active'));
+
+      // Добавляем active текущей кнопке и соответствующей панели
+      btn.classList.add('active');
+      const targetId = btn.getAttribute('data-target');
+      const targetPane = document.getElementById(targetId);
+      if (targetPane) {
+        targetPane.classList.add('active');
+      }
+    });
+  });
+}
+
 // Node/тесты (CommonJS): отдаём функции наружу. В браузере они остаются глобальными.
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { sortByYear, createCard, renderTimeline };
+  module.exports = { sortByYear, createCard, renderTimeline, initTabs };
 }
