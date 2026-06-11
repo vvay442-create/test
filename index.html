@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Dev Timeline — четыре парадигмы AI в разработке</title>
+    <meta
+      name="description"
+      content="Интерактивная хронология: четыре парадигмы AI в разработке за пять лет."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <p class="hero__eyebrow">AI in Dev · митап-практикум</p>
+      <h1 class="hero__title">Четыре парадигмы AI<br />в разработке за пять лет</h1>
+      <p class="hero__lead">
+        От автодополнения строки до автономных агентов, которые берут задачу
+        «на ночь» и приносят PR к утру.
+      </p>
+    </header>
+
+    <main class="timeline-wrap">
+      <div id="timeline" class="timeline" aria-label="Хронология вех"></div>
+    </main>
+
+    <footer class="footer">
+      <p>Шаблон практикума · добавь свою веху в <code>data.js</code> и открой PR.</p>
+    </footer>
+
+    <!-- Классические скрипты: работают двойным кликом по index.html (file://) и на Pages. -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script>
+      renderTimeline(MILESTONES, document.getElementById('timeline'));
+    </script>
+  </body>
+</html>

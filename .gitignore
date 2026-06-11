@@ -1,0 +1,10 @@
+node_modules/
+coverage/
+*.log
+.DS_Store
+
+# Локальные настройки Claude Code (личные, не часть шаблона)
+.claude/settings.local.json
+
+# Личные материалы практикума (не часть шаблона)
+context/
